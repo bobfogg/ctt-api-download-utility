@@ -89,7 +89,7 @@ if __name__ == '__main__':
 
     # assume default begin date to start
     begin = DEFAULT_BEGIN_DATE
-    logging.info('using data folder: {}'.format(DATA_FOLDER))
+    logging.debug('using data folder: {}'.format(DATA_FOLDER))
     if os.path.exists(DATA_FOLDER) is False:
         # directory does not exist - create it
         os.makedirs(DATA_FOLDER)
