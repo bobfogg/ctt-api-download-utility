@@ -8,6 +8,9 @@ from pytz import utc
 
 # save data files to this folder
 DATA_FOLDER = 'ctt-data'
+if os.environ.get('CTT_DATA_FOLDER') is not None:
+    DATA_FOLDER = os.environ.get('CTT_DATA_FOLDER')
+
 DEFAULT_BEGIN_DATE = datetime.datetime(2019,1,1).replace(tzinfo=utc)
 
 logging.basicConfig(
@@ -86,6 +89,7 @@ if __name__ == '__main__':
 
     # assume default begin date to start
     begin = DEFAULT_BEGIN_DATE
+    logging.info('using data folder: {}'.format(DATA_FOLDER))
     if os.path.exists(DATA_FOLDER) is False:
         # directory does not exist - create it
         os.makedirs(DATA_FOLDER)
